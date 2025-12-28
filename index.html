@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reproductor de Vídeo Accesible - Able Player</title>
+    
+    <!-- Dependencies -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+    
+    <!-- JavaScript -->
+    <script src="build/ableplayer.min.js"></script>
+    <script src="custom-player.js"></script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="build/ableplayer.min.css" type="text/css"/>
+    <link rel="stylesheet" href="custom-player.css" type="text/css"/>
+    
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #262626;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+        
+        /* Contenedor del vídeo con ancho específico y responsive */
+        .video-container {
+            width: 800px;
+            max-width: 100%;
+            margin-bottom: 30px;
+        }
+        
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Reproductor de Vídeo Accesible</h1>
+        
+        <div class="video-container">
+            <video 
+                id="video1" 
+                data-able-player 
+                data-skin="2020"
+                preload="auto" 
+                width="auto"
+                height="auto"
+                playsinline>
+                
+                <!-- Fuente de vídeo local -->
+                <source type="video/mp4" src="video_jose.mp4"/>
+                
+                <!-- Subtítulos locales -->
+                <track 
+                    kind="captions" 
+                    src="video_jose_subtitulos.vtt" 
+                    srclang="es" 
+                    label="Español"/>
+                
+                <!-- Audiodescripción local (text-to-speech) -->
+                <track 
+                    kind="descriptions" 
+                    src="video_jose_audiodescripcion.vtt" 
+                    srclang="es" 
+                    label="Español"/>
+                
+                <!-- Contenido alternativo para navegadores que no soportan HTML5 video -->
+                <p>Tu navegador no soporta el elemento de vídeo HTML5. 
+                   <a href="video_jose.mp4">Descarga el vídeo</a> para verlo.</p>
+            </video>
+        </div>
+        
+        <footer>
+            <p>Reproductor de vídeo accesible implementado con <a href="https://ableplayer.github.io/ableplayer/" target="_blank" rel="noopener">Able Player</a></p>
+        </footer>
+    </div>
+    
+    <!-- Traducciones en español -->
+    <script src="translations/es.js"></script>
+</body>
+</html>
